@@ -1,0 +1,130 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PneumonAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='logo.png') }}"
+      type="image/x-icon"
+    />
+    <style>
+      body {
+        font-family: "Nunito", sans-serif;
+      }
+
+      .blue {
+        background-color: #0099ff;
+      }
+
+      .dongker {
+        color: #01095e;
+      }
+
+      .bg {
+        background-color: rgba(0, 153, 255, 0.65);
+      }
+
+      .bdr {
+        border: 2px solid #0099ff;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+      <div
+        class="container mx-auto px-12 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <img
+            alt="PneumonAI logo"
+            class="h-10 w-10 rounded-md"
+            height="40"
+            src="{{ url_for('static', filename='logo.png') }}"
+            width="40"
+          />
+          <span class="ml-2 text-2xl font-bold dongker"> PneumonAI </span>
+        </div>
+        <nav class="flex space-x-4 items-center">
+          <a class="hover:text-blue-500" href="{{ url_for('home') }}"> Home </a>
+          <a class="hover:text-blue-500" href="{{ url_for('about') }}">
+            About Us
+          </a>
+          <a
+            class="blue text-white px-4 py-2 rounded-full hover:bg-blue-500"
+            href="{{ url_for('home') }}#detect"
+          >
+            Start Detecting
+          </a>
+        </nav>
+      </div>
+    </header>
+    <main class="text-center py-16">
+      <h1 class="text-5xl font-bold dongker pt-8">Our Mission:</h1>
+      <h2 class="text-5xl font-bold dongker mt-2">
+        Merging Technology and Health
+      </h2>
+      <p class="mt-6 pt-12 text-lg max-w-4xl mx-auto pb-8">
+        We are a team dedicated to creating AI solutions that enhance healthcare
+        for everyone. With expertise in both technology and medicine, our goal
+        is to make disease diagnosis faster, easier, and more accurate. Meet the
+        people behind this innovation and join us in shaping a healthier future.
+      </p>
+    </main>
+    <section class="bg py-16 pt-24 pb-24">
+      <h2 class="text-5xl font-bold text-center dongker pb-12">
+        Meet Our Team
+      </h2>
+      <div class="flex justify-center space-x-8 mt-8">
+        <div
+          class="bg-white p-6 rounded-xl shadow-lg text-center min-w-[225px]"
+        >
+          <img
+            alt="Profile picture of Bernard Santosa"
+            class="mx-auto rounded-full"
+            height="150"
+            src="{{ url_for('static', filename='person1.jpg') }}"
+            width="150"
+          />
+          <p class="mt-4 text-lg font-semibold">Bernard Santosa</p>
+        </div>
+        <div
+          class="bg-white p-6 rounded-xl shadow-lg text-center min-w-[225px]"
+        >
+          <img
+            alt="Profile picture of Filbert Naldo Wijaya"
+            class="mx-auto rounded-full"
+            height="150"
+            src="{{ url_for('static', filename='person2.jpg') }}"
+            width="150"
+          />
+          <p class="mt-4 text-lg font-semibold">Filbert Naldo Wijaya</p>
+        </div>
+        <div
+          class="bg-white p-6 rounded-xl shadow-lg text-center min-w-[225px]"
+        >
+          <img
+            alt="Profile picture of Edberg"
+            class="mx-auto rounded-full"
+            height="150"
+            src="{{ url_for('static', filename='person3.png') }}"
+            width="150"
+          />
+          <p class="mt-4 text-lg font-semibold">Edberg</p>
+        </div>
+      </div>
+    </section>
+    <footer class="text-center py-4">
+      <p>Copyright © 2024 PneumonAI</p>
+    </footer>
+  </body>
+</html>

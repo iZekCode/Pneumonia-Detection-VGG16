@@ -1,0 +1,592 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PneumonAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='logo.png') }}"
+      type="image/x-icon"
+    />
+    <style>
+      body {
+        font-family: "Nunito", sans-serif;
+      }
+
+      .blue {
+        background-color: #0099ff;
+      }
+
+      .dongker {
+        color: #01095e;
+      }
+
+      .bg {
+        background-color: rgba(0, 153, 255, 0.65);
+      }
+
+      .bdr {
+        border: 2px solid #0099ff;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-1000">
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+      <div
+        class="container mx-auto px-12 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <img
+            alt="PneumonAI logo"
+            class="h-10 w-10 rounded-md"
+            height="40"
+            src="{{ url_for('static', filename='logo.png') }}"
+            width="40"
+          />
+          <span class="ml-2 text-2xl font-bold dongker"> PneumonAI </span>
+        </div>
+        <nav class="flex space-x-4 items-center">
+          <a class="hover:text-blue-500" href="{{ url_for('home') }}"> Home </a>
+          <a class="hover:text-blue-500" href="{{ url_for('about') }}">
+            About Us
+          </a>
+          <a
+            class="blue text-white px-4 py-2 rounded-full hover:bg-blue-500"
+            href="#detect"
+          >
+            Start Detecting
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="bg-white py-12">
+        <div
+          class="container mx-auto px-12 flex flex-col md:flex-row items-center"
+        >
+          <div class="md:w-2/3 text-center md:text-left">
+            <h1 class="text-5xl font-bold dongker">
+              Detect Pneumonia with AI. <br />Fast, Accurate, and Easy!
+            </h1>
+            <p class="mt-4 pt-4 text-lg">
+              Welcome to the future of pneumonia detection! With just one click,
+              you can analyze your chest X-ray and get fast, reliable results.
+              Start now and experience the power of cutting-edge technology.
+            </p>
+            <div class="mt-8 flex justify-center md:justify-start space-x-4">
+              <a
+                class="blue text-white px-6 py-3 rounded-full hover:bg-blue-500"
+                href="#detect"
+              >
+                Start Detecting
+              </a>
+            </div>
+          </div>
+          <div class="md:w-1/3 mt-8 md:mt-0 flex justify-center md:justify-end">
+            <img
+              alt="Doctor analyzing X-ray"
+              class="mx-auto"
+              height="400"
+              src="{{ url_for('static', filename='header.png') }}"
+              width="400"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="bg py-16">
+        <div class="container mx-auto px-4 py-8">
+          <h2 class="text-5xl font-bold text-center dongker">
+            What You Need to Know About Pneumonia
+          </h2>
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 pt-12 px-8">
+            <div class="bg-white p-6 rounded-2xl shadow">
+              <h3 class="text-2xl font-bold text-gray-800">
+                What is Pneumonia?
+              </h3>
+              <p class="mt-2">
+                Pneumonia is a lung infection that makes it hard to breathe. It
+                fills the air sacs in your lungs with fluid or pus, leading to
+                coughing, fever, and chills. While anyone can get pneumonia,
+                it's more dangerous for young kids, older people, and those with
+                weak immune systems.
+              </p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow">
+              <h3 class="text-2xl font-bold text-gray-800">What Causes It?</h3>
+              <p class="mt-2">
+                Pneumonia is caused by germs like bacteria, viruses (like the
+                flu or COVID-19), and fungi. The most common type comes from
+                bacteria called Streptococcus pneumoniae.
+              </p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow">
+              <h3 class="text-2xl font-bold text-gray-800">
+                What Happens if It's Left Untreated?
+              </h3>
+              <p class="mt-2">
+                Without treatment, pneumonia can cause serious problems like
+                breathing failure or blood infections. It's important to treat
+                it early to prevent these dangers.
+              </p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow">
+              <h3 class="text-2xl font-bold text-gray-800">
+                How Do You Detect It?
+              </h3>
+              <p class="mt-2">
+                Pneumonia symptoms can feel like a bad cold, so doctors use
+                chest X-rays to find it. With our AI, you can upload your X-ray,
+                and we'll help check for pneumonia quickly.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-white py-16 pb-24">
+        <div class="container mx-auto px-12 pt-8">
+          <h2 class="text-5xl font-bold text-center dongker">
+            How Does Our AI Detect Pneumonia?
+          </h2>
+          <p class="mt-4 text-center py-8 text-lg">
+            Behind the scenes, our AI is like a detective, scanning your X-ray
+            for clues and patterns that could signal pneumonia. It's fast,
+            reliable, and gives you answers without the wait. Want to know how
+            it all works? We've got you covered.
+          </p>
+
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Left column - Powered by Deep Learning Section -->
+            <div class="bg-white p-6 bdr rounded-3xl shadow-xl">
+              <div class="flex items-start">
+                <div>
+                  <img
+                    src="{{ url_for('static', filename='machine-learning.png') }}"
+                    alt="icon"
+                    class="w-9 h-9 mr-4 mb-2"
+                  />
+                  <h3 class="text-xl font-bold">Powered by Deep Learning</h3>
+                  <p class="mt-2">
+                    Our AI uses deep learning, mimicking the human brain.
+                    Trained on thousands of X-rays, it recognizes subtle
+                    patterns that even experts might miss, like having a
+                    super-experienced radiologist 24/7.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Center Column - Robot Image Section -->
+            <div
+              class="bg-white p-6 bdr rounded-3xl shadow-xl row-span-2 flex items-center justify-center"
+            >
+              <img
+                alt="AI analyzing X-ray"
+                class="mx-auto"
+                height="500"
+                src="{{ url_for('static', filename='robot.png') }}"
+                width="500"
+              />
+            </div>
+
+            <!-- Left column - Super Quick Results Section -->
+            <div class="bg-white p-6 bdr rounded-3xl shadow-xl">
+              <div class="flex items-start">
+                <div>
+                  <img
+                    src="{{ url_for('static', filename='clock.png') }}"
+                    alt="icon"
+                    class="w-9 h-9 mr-4 mb-2"
+                  />
+                  <h3 class="text-xl font-bold">Super Quick Results</h3>
+                  <p class="mt-2">
+                    Get results in seconds after uploading your image. The AI
+                    processes it instantly, delivering a detailed report without
+                    delay.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right column - What Does It Look For? Section -->
+            <div class="bg-white p-6 bdr rounded-3xl shadow-xl">
+              <div class="flex items-start">
+                <div>
+                  <img
+                    src="{{ url_for('static', filename='eye.png') }}"
+                    alt="icon"
+                    class="w-9 h-9 mr-4 mb-2"
+                  />
+                  <h3 class="text-xl font-bold">What Does It Look For?</h3>
+                  <p class="mt-2">
+                    Upload your chest X-ray, and the AI scans for pneumonia
+                    signs such as lung opacity, fluid buildup, and inflammation,
+                    providing a detailed analysis.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right column - Accuracy You Can Trust Section -->
+            <div class="bg-white p-6 bdr rounded-3xl shadow-xl">
+              <div class="flex items-start">
+                <div>
+                  <img
+                    src="{{ url_for('static', filename='accuracy.png') }}"
+                    alt="icon"
+                    class="w-9 h-9 mr-4 mb-2"
+                  />
+                  <h3 class="text-xl font-bold">Accuracy You Can Trust</h3>
+                  <p class="mt-2">
+                    Trained on 10,000 images, our model delivers 95.83% of
+                    accuracy, complementing doctors' expertise for the best
+                    care.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg py-16 px-8 pb-24" id="detect">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-5xl font-bold dongker mt-8">
+            Upload Your X-ray - Get Instant Results!
+          </h2>
+          <p class="mt-4 text-lg py-8">
+            Got a chest X-ray? Great! Upload it here, and in just a few moments,
+            our AI will give you a detailed report. <br />It's quick, it's easy,
+            and it's secure. Let's get started!
+          </p>
+          <div
+            class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 bg-white rounded-3xl p-8 mx-36"
+            style="min-height: 450px"
+          >
+            <div
+              class="bg-white p-6 rounded-xl shadow flex flex-col items-center justify-center border-2 border-dashed border-gray-500 relative"
+            >
+              <img
+                src="{{ url_for('static', filename='x-ray.png') }}"
+                alt="icon"
+                class="w-20 h-20 opacity-40"
+                id="uploadLogo"
+              />
+              <button
+                class="mt-4 blue text-white px-6 py-3 mt-8 rounded-full hover:bg-blue-500"
+                id="uploadButton"
+              >
+                Upload Image
+              </button>
+              <input
+                class="hidden"
+                id="fileInput"
+                type="file"
+                accept="image/*"
+              />
+              <img
+                alt="Image Preview"
+                class="mt-4 hidden"
+                id="imagePreview"
+                style="display: none; max-width: 100%"
+              />
+              <i
+                class="fas fa-times text-3xl absolute dongker mt-4 hidden top-0 right-6"
+                id="removeImage"
+                style="cursor: pointer"
+              >
+              </i>
+            </div>
+            <div
+              class="bg-white p-6 rounded-xl shadow flex flex-col items-center justify-center border-2 border-gray-300"
+            >
+              <img
+                src="{{ url_for('static', filename='loupe.png') }}"
+                alt="icon"
+                class="w-20 h-20 opacity-40"
+                id="check-icon"
+              />
+              <button
+                class="mt-4 bg-gray-200 px-6 py-3 mt-8 rounded-full hover:bg-gray-300"
+                id="check-button"
+                disabled
+              >
+                Check My X-Ray
+              </button>
+              <div class="w-full" id="prediction-result" style="display: none">
+                <div>
+                  <p class="text-left pb-2 text-lg">Prediction</p>
+                  <div
+                    id="prediction"
+                    class="bg-gray-100 py-9 rounded-lg text-center text-2xl font-bold"
+                  >
+                    Pneumonia
+                  </div>
+                </div>
+                <div class="pt-12">
+                  <p class="text-left pb-2 text-lg">Confidence</p>
+                  <div
+                    id="confidence"
+                    class="bg-gray-100 py-9 rounded-lg text-center text-2xl font-bold"
+                  >
+                    98.57%
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-white py-16 px-8">
+        <div class="container mx-auto px-4">
+          <h2 class="text-5xl font-bold dongker">Frequently Ask Question</h2>
+          <hr class="my-4 border-t-2 border-gray-300" />
+          <ul class="mt-8 space-y-4 text-lg">
+            <li class="accordion-item">
+              <div class="accordion-header cursor-pointer text-xl font-bold">
+                <span class="icon font-normal">></span>
+                <span>How quickly can I start the detection process?</span>
+              </div>
+              <div
+                class="accordion-content max-h-0 overflow-hidden transition-all duration-300"
+              >
+                <p class="mt-2 text-justify">
+                  No complicated forms here. Just drag and drop your chest X-ray
+                  image or select it from your device, and our AI will start
+                  analyzing right away. The process only takes a few seconds,
+                  and you'll have your results in no time.
+                </p>
+              </div>
+            </li>
+            <li class="accordion-item">
+              <div class="accordion-header cursor-pointer text-xl font-bold">
+                <span class="icon font-normal">></span>
+                <span>What information will I receive after the scan?</span>
+              </div>
+              <div
+                class="accordion-content max-h-0 overflow-hidden transition-all duration-300"
+              >
+                <p class="mt-2 text-justify">
+                  Once the scan is complete, you’ll receive two key pieces of
+                  information:
+                  <br /><br />
+                  Prediction: Whether the scan indicates ‘Normal’ or shows signs
+                  of ‘Pneumonia’.
+                  <br />
+                  Confidence Level: A percentage that tells you how confident
+                  the AI is in its prediction.
+                  <br /><br />
+                  For example, a 95% confidence means the AI is highly certain
+                  about its result.
+                </p>
+              </div>
+            </li>
+            <li class="accordion-item">
+              <div class="accordion-header cursor-pointer text-xl font-bold">
+                <span class="icon font-normal">></span>
+                <span>Is my privacy protected when using this tool?</span>
+              </div>
+              <div
+                class="accordion-content max-h-0 overflow-hidden transition-all duration-300"
+              >
+                <p class="mt-2 text-justify">
+                  We take your privacy seriously. Your X-rays are processed
+                  securely, and we don’t store any images after generating your
+                  results. It’s all about keeping your data safe while giving
+                  you the answers you need.
+                </p>
+              </div>
+            </li>
+            <li class="accordion-item">
+              <div class="accordion-header cursor-pointer text-xl font-bold">
+                <span class="icon font-normal">></span>
+                <span>How fast will I get the results?</span>
+              </div>
+              <div
+                class="accordion-content max-h-0 overflow-hidden transition-all duration-300"
+              >
+                <p class="mt-2 text-justify">
+                  No need to wait around. As soon as the image is uploaded, our
+                  AI works its magic and provides you with a detailed prediction
+                  in seconds. The confidence score helps you understand how
+                  reliable the result is, giving you peace of mind.
+                </p>
+              </div>
+            </li>
+            <li class="accordion-item">
+              <div class="accordion-header cursor-pointer text-xl font-bold">
+                <span class="icon font-normal">></span>
+                <span>What should I do if the result indicates pneumonia?</span>
+              </div>
+              <div
+                class="accordion-content max-h-0 overflow-hidden transition-all duration-300"
+              >
+                <p class="mt-2 text-justify">
+                  If the result suggests pneumonia, we recommend you follow up
+                  with a healthcare professional. The AI is designed to support
+                  early detection, but a doctor’s opinion is always the next
+                  step in your care journey.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-white py-4 pb-4">
+      <div class="container mx-auto px-4 text-center">
+        <p>Copyright © 2024 PneumonAI</p>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const items = document.querySelectorAll(".accordion-item");
+        items.forEach((item) => {
+          item
+            .querySelector(".accordion-header")
+            .addEventListener("click", () => {
+              const openItem = document.querySelector(".accordion-item.open");
+              toggleItem(item);
+              if (openItem && openItem !== item) {
+                toggleItem(openItem);
+              }
+            });
+        });
+
+        const toggleItem = (item) => {
+          const content = item.querySelector(".accordion-content");
+          if (item.classList.contains("open")) {
+            content.style.maxHeight = null;
+            item.classList.remove("open");
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            item.classList.add("open");
+          }
+        };
+
+        document
+          .getElementById("uploadButton")
+          .addEventListener("click", function () {
+            document.getElementById("fileInput").click();
+          });
+
+        document
+          .getElementById("fileInput")
+          .addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function (e) {
+                document.getElementById("imagePreview").src = e.target.result;
+                document.getElementById("imagePreview").style.display = "block";
+                document.getElementById("uploadLogo").style.display = "none";
+                document.getElementById("uploadButton").style.display = "none";
+                document.getElementById("removeImage").style.display = "block";
+              };
+              reader.readAsDataURL(file);
+            }
+          });
+
+        document
+          .getElementById("removeImage")
+          .addEventListener("click", function () {
+            document.getElementById("fileInput").value = "";
+            document.getElementById("imagePreview").style.display = "none";
+            document.getElementById("uploadLogo").style.display = "block";
+            document.getElementById("uploadButton").style.display = "block";
+            document.getElementById("removeImage").style.display = "none";
+
+            // sementara - handle upload tapi blm dicheck dan lgsg remove
+            window.location.reload();
+          });
+      });
+
+      document.querySelectorAll(".accordion-item").forEach((item) => {
+        const header = item.querySelector(".accordion-header");
+        const content = item.querySelector(".accordion-content");
+        const icon = header.querySelector(".icon");
+
+        header.addEventListener("click", () => {
+          const isActive = content.style.maxHeight;
+          document
+            .querySelectorAll(".accordion-content")
+            .forEach((c) => (c.style.maxHeight = null));
+          document
+            .querySelectorAll(".icon")
+            .forEach((i) => (i.textContent = ">"));
+
+          if (!isActive) {
+            content.style.maxHeight = content.scrollHeight + "px";
+            icon.textContent = "v";
+          } else {
+            content.style.maxHeight = null;
+          }
+        });
+      });
+
+      const fileInput = document.getElementById("fileInput");
+      const checkButton = document.getElementById("check-button");
+
+      const removeImage = document.getElementById("removeImage");
+      const uploadLogo = document.getElementById("uploadLogo");
+      const imagePreview = document.getElementById("imagePreview");
+
+      const predictionResult = document.getElementById("prediction-result");
+      const predictionText = document.getElementById("prediction");
+      const confidenceText = document.getElementById("confidence");
+
+      // Enable the check button when an image is uploaded
+      fileInput.addEventListener("change", function () {
+        if (fileInput.files.length > 0) {
+          checkButton.disabled = false;
+          uploadLogo.classList.add("hidden"); // Hide the upload icon
+          imagePreview.src = URL.createObjectURL(fileInput.files[0]);
+          imagePreview.classList.remove("hidden"); // Show the image preview
+          removeImage.classList.remove("hidden"); // Show the remove icon
+        } else {
+          checkButton.disabled = true;
+        }
+      });
+
+      // Call the showPrediction function when the "Check" button is clicked
+      checkButton.addEventListener("click", function () {
+        const formData = new FormData();
+        formData.append("file", fileInput.files[0]);
+        console.log(formData);
+        fetch("/predict", {
+          // Ensure '/predict' matches your Flask route
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            predictionText.innerText = data.prediction; // Update with the prediction result
+            confidenceText.innerText = data.confidence.toFixed(2) + "%"; // Update with the confidence
+            predictionResult.style.display = "block"; // Show the prediction result
+            document.getElementById("check-icon").style.display = "none";
+            document.getElementById("check-button").style.display = "none";
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      });
+
+      removeImage.addEventListener("click", function () {
+        fileInput.value = ""; // Clear the file input
+        checkButton.disabled = true; // Disable the check button
+        uploadLogo.classList.remove("hidden"); // Show the upload icon again
+        imagePreview.classList.add("hidden"); // Hide the image preview
+        removeImage.classList.add("hidden"); // Hide the remove icon
+        predictionResult.style.display = "none"; // Hide the prediction result
+      });
+    </script>
+  </body>
+</html>
